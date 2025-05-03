@@ -13,7 +13,7 @@ function agregarProducto(id, nombre, precio, stock) {
     console.log("Producto agregado:", producto);
 }
 
-// Agregamos productos
+// Aquí agregamos productos
 agregarProducto(1, "A", 20, 63);
 agregarProducto(2, "B", 30, 28);
 agregarProducto(3, "C", 35, 84);
