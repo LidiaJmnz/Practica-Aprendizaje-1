@@ -1,6 +1,6 @@
 let vectorProductos = [];
 
-// Agrega un producto al vector y actualiza el DOM
+//C1 Y C2. LIDIA. Agrega un producto al vector y actualiza el DOM
     function agregarProducto(id, nombre, precio, stock) {
     const producto = { id, nombre, precio, stock };
     vectorProductos.push(producto);
@@ -8,14 +8,14 @@ let vectorProductos = [];
     renderizarProductos();
     }
 
-    // Elimina un producto por ID
+    //C3. LIDIA. Elimina un producto por ID
     function eliminarProducto(id) {
     vectorProductos = vectorProductos.filter(producto => producto.id !== id);
     console.log("Producto eliminado:", id);
     renderizarProductos();
     }
 
-    // Actualiza el stock de un producto por ID
+    //C4. LIDIA. Actualiza el stock de un producto por ID
     function actualizarStock(id, nuevoStock) {
     for (let producto of vectorProductos) {
         if (producto.id === id) {
