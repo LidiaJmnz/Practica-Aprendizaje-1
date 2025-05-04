@@ -37,7 +37,7 @@ function renderizarProductos() {
     div.classList.add("producto-item");
     div.innerHTML = `
       <strong>${producto.nombre}</strong> (ID: ${producto.id})<br>
-      Precio: $${producto.precio} <br>
+      Precio:${producto.precio}€<br>
       Stock: <input type="number" value="${producto.stock}" id="stock-${producto.id}" style="width: 60px;" />
       <button onclick="guardarStock(${producto.id})">Guardar Stock</button>
       <button onclick="eliminarProducto(${producto.id})">Eliminar</button>
