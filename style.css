@@ -4,61 +4,61 @@
     --gris-oscuro: #333;
     --blanco: #ffffff;
     --negro: #000000;
+        
+    }
     
-  }
-  
-  body {
-    margin: 0;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    background-color: var(--negro);
-    color: var(--negro);
-  }
-  
-  header {
-    background-color: var(--azul);
-    color: var(--blanco);
-    font-size: xx-large;
-    padding: 1rem;
-    text-align: center;
-  }
-  
-  main {
-    display: flex;
-    justify-content: center;
-    padding: 2rem;
-  }
-  
-  section {
-    background-color: var(--blanco);
-    border: 1px solid var(--gris);
-    border-radius: 8px;
-    padding: 1rem;
-    max-width: 375px;
-    width: 100%;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    body {
+        margin: 0;
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        background-color: var(--negro);
+        color: var(--negro);
+    }
+    
+    header {
+        background-color: var(--azul);
+        color: var(--blanco);
+        font-size: xx-large;
+        padding: 1rem;
+        text-align: center;
+    }
+    
+    main {
+        display: flex;
+        justify-content: center;
+        padding: 2rem;
+    }
+    
+    section {
+        background-color: var(--blanco);
+        border: 1px solid var(--gris);
+        border-radius: 8px;
+        padding: 1rem;
+        max-width: 375px;
+        width: 100%;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
 
-  }
-  
-  input, button {
-    padding: 0.5rem;
-    margin: 0.3rem 0.2rem;
-    border: 1px solid var(--azul);
-    border-radius: 4px;
-  }
-  
-  button {
-    background-color: var(--azul);
-    color: var(--blanco);
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: var(--negro);
-    color: var(--azul);
-  }
-  
-  .producto-item {
-    border-top: 1px solid var(--gris);
-    padding: 0.5rem 0;
-  }
-  
+    }
+    
+    input, button {
+        padding: 0.5rem;
+        margin: 0.3rem 0.2rem;
+        border: 1px solid var(--azul);
+        border-radius: 4px;
+    }
+    
+    button {
+        background-color: var(--azul);
+        color: var(--blanco);
+        cursor: pointer;
+    }
+    
+    button:hover {
+        background-color: var(--negro);
+        color: var(--azul);
+    }
+    
+    .producto-item {
+        border-top: 1px solid var(--gris);
+        padding: 0.5rem 0;
+    }
+    
