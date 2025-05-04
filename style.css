@@ -9,13 +9,13 @@
   body {
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
-    background-color: var(--gris-claro);
+    background-color: var(--negro);
     color: var(--negro);
   }
   
   header {
-    background-color: var(--gris-oscuro);
-    color: var(--blanco);
+    background-color: var(--gris-claro);
+    color: var(--gris-oscuro);
     padding: 1rem;
     text-align: center;
   }
