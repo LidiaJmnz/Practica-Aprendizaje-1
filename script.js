@@ -1,45 +1,88 @@
-// C1 LIDIA. Crear vector dinámico para almacenar productos.
 let vectorProductos = [];
 
-// C2 LIDIA. Crear función para agregar productos al vector.
+// Agrega un producto al vector y actualiza el DOM
 function agregarProducto(id, nombre, precio, stock) {
-    let producto = {
-        id: id,
-        nombre: nombre,
-        precio: precio,
-        stock: stock
-    };
-    vectorProductos.push(producto);
-    console.log("Producto agregado:", producto);
+  const producto = { id, nombre, precio, stock };
+  vectorProductos.push(producto);
+  console.log("Producto agregado:", producto);
+  renderizarProductos();
 }
 
-// Aquí agregamos productos
-agregarProducto(1, "A", 20, 63);
-agregarProducto(2, "B", 30, 28);
-agregarProducto(3, "C", 35, 84);
-agregarProducto(4, "D", 10, 120);  
-agregarProducto(5, "E", 50, 100);
-
-// C3 LIDIA. Crear función para eliminar productos del vector.
+// Elimina un producto por ID
 function eliminarProducto(id) {
-    for (let i = 0; i < vectorProductos.length; i++) {
-        if (vectorProductos[i].id === id) {
-            vectorProductos.splice(i, 1);
-            console.log("Producto eliminado:", id);
-            return;
-        }
-    }
-    console.log("Producto no encontrado:", id);
+  vectorProductos = vectorProductos.filter(producto => producto.id !== id);
+  console.log("Producto eliminado:", id);
+  renderizarProductos();
 }
 
-// C4 LIDIA. Crear función para actualizar stock.
+// Actualiza el stock de un producto por ID
 function actualizarStock(id, nuevoStock) {
-    for (let producto of vectorProductos) {
-        if (producto.id === id) {
-            producto.stock = nuevoStock;
-            console.log("Stock actualizado:", id, "Nuevo stock:", nuevoStock);
-            return;
-        }
+  for (let producto of vectorProductos) {
+    if (producto.id === id) {
+      producto.stock = nuevoStock;
+      console.log("Stock actualizado:", id, "Nuevo stock:", nuevoStock);
+      break;
     }
-    console.log("Producto no encontrado:", id);
+  }
+  renderizarProductos();
 }
+
+// Renderiza la lista de productos en la interfaz
+function renderizarProductos() {
+  const lista = document.getElementById("lista-productos");
+  lista.innerHTML = "";
+
+  vectorProductos.forEach(producto => {
+    const div = document.createElement("div");
+    div.classList.add("producto-item");
+    div.innerHTML = `
+      <strong>${producto.nombre}</strong> (ID: ${producto.id})<br>
+      Precio: $${producto.precio} <br>
+      Stock: <input type="number" value="${producto.stock}" id="stock-${producto.id}" style="width: 60px;" />
+      <button onclick="guardarStock(${producto.id})">Guardar Stock</button>
+      <button onclick="eliminarProducto(${producto.id})">Eliminar</button>
+    `;
+    lista.appendChild(div);
+  });
+}
+
+// Botón para guardar el stock nuevo
+function guardarStock(id) {
+  const input = document.getElementById(`stock-${id}`);
+  const nuevoStock = parseInt(input.value);
+  if (!isNaN(nuevoStock)) {
+    actualizarStock(id, nuevoStock);
+  } else {
+    alert("Stock inválido.");
+  }
+}
+
+// Manejador del botón "Agregar Producto"
+document.getElementById("agregarProducto").addEventListener("click", () => {
+  const nombre = document.getElementById("nombreProducto").value.trim();
+  const precio = parseFloat(document.getElementById("precioProducto").value);
+  const stock = parseInt(document.getElementById("stockProducto").value);
+
+  if (!nombre || isNaN(precio) || isNaN(stock)) {
+    alert("Por favor, completa todos los campos correctamente.");
+    return;
+  }
+
+  const nuevoId = vectorProductos.length
+    ? Math.max(...vectorProductos.map(p => p.id)) + 1
+    : 1;
+
+  agregarProducto(nuevoId, nombre, precio, stock);
+
+  // Limpiar campos
+  document.getElementById("nombreProducto").value = "";
+  document.getElementById("precioProducto").value = "";
+  document.getElementById("stockProducto").value = "";
+});
+
+// Productos iniciales
+agregarProducto(1, "Producto 1", 20, 63);
+agregarProducto(2, "Producto 2", 30, 28);
+agregarProducto(3, "Producto 3", 35, 84);
+agregarProducto(4, "Producto 4", 10, 120);
+agregarProducto(5, "Producto 5", 50, 100);
